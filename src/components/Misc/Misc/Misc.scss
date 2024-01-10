@@ -1,0 +1,114 @@
+$dark-accent: #00446b;
+$light-accent: #0074b3;
+
+
+.misc-section{
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30px 20px;
+    color: $dark-accent;
+    position: relative;
+}
+
+.shopping-tools{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shopping-tool-bar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .shopping-tool{
+        width: 24%;
+        height: 273px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px 1px lightgray;
+        box-sizing: border-box;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        svg{
+            height: 65px;
+            margin: 15px 0px;
+            color: $dark-accent;
+        }
+        p{
+            font-size: 1em;
+            margin: 0;
+            color: $dark-accent;
+            font-weight: 800;
+        }
+    }
+}
+
+.awards{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2{
+        color: #00446b
+    }
+    .award-card{
+        width: 400px;
+        height: 500px;
+        background-color: white;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 20px 30px;
+        img{
+            width: 50%;
+        }
+        .award-name{
+            text-align: center;
+            padding-bottom: 20px;
+            .award-title{
+                font-size: 1.8em;
+                margin: 0;
+                line-height: 1.2;
+                font-weight: 900;
+                span{
+                    font-style: italic;
+                }
+            }
+            .award-origin{
+                margin: 10px 0px;
+                font-weight: 600;
+            }
+        }
+        .see-details{
+            font-weight: 700;
+        }
+    }
+    button{
+        margin-top: 40px;
+        padding: 10px 40px;
+        border-radius: 20px;
+        font-weight: 700;
+        background-color: red;
+        color: white;
+        border-style: solid;
+        border-width: 2px;
+        border-color: transparent;
+        cursor: pointer;
+        &:hover{
+            background-color: white;
+            border-color: red;
+            color: red;
+        }
+    }
+}

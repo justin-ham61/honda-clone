@@ -1,0 +1,42 @@
+$dark-accent: #00446b;
+$light-accent: #0074b3;
+
+.sub-foot-box{
+    width: 100%;
+    background-color: $light-accent;
+    box-sizing: border-box;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    .copyright-row{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        .copyright{
+            font-size: .8em;
+        }
+        .notices{
+            font-size: .8em;
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            p{
+                margin: 0;
+                font-weight: 600;
+            }
+        }
+    }
+    .cookie-warning{
+        width: 100%;
+        margin-top: 50px;
+        text-align: left;
+        p{
+            width: 50%;
+            margin: 0;
+            font-size: .8em;
+            font-weight: 600;
+        }
+    }
+}

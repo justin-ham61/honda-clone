@@ -1,0 +1,155 @@
+$dark-accent: #00446b;
+$light-accent: #0074b3;
+
+.performance-box{
+    width: 85%;
+    .performance-heading-bar-mirror{
+        width: 100%;
+        display: flex;
+        gap: 20px;
+        justify-content: end;
+        .heading-accent{
+            width: 150px;
+            border-bottom: solid;
+            border-color: black;
+            text-align: start;
+            height: 20px;
+            p{
+                color: black;
+                font-weight: 800;
+                font-size: .8em;
+                margin: 0;
+            }
+        }
+        .performance-heading{
+            color: #00446b;
+            margin: 0;
+            line-height: .8;
+            font-size: 3em;
+            letter-spacing: 0;
+        }
+    }
+    .main-image-mirror{
+        position: relative;
+        display: flex;
+        justify-content: end;
+        .image-wrapper{
+            width: 80%;
+            overflow: hidden;
+            min-height: 700px;
+            img{
+                width: 100%;
+            }
+        }
+        .text-box-mirror{
+            position: absolute;
+            z-index: 3;
+            top: 50px;
+            height: 450px;
+            width: 380px;
+            background-color: #00324e;
+            left: 90px;
+            box-sizing: border-box;
+            padding: 32px 36px;
+            color: white;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            .text-wrapper{
+                flex: 1 0 auto;
+                display: inline-block;
+                overflow: hidden;
+                display: flex;
+                width: 100%;
+                position: relative;
+                .text-final{
+                    position: absolute;
+                    width: 100%;
+                    .name{
+                        margin: 0;
+                        font-size: .8em;
+                        font-weight: 700;
+                    }
+                    .heading{
+                        margin: 10px 0;
+                        line-height: 1;
+                        font-family: 'Montserrat', sans-serif;
+                        font-weight: 500;
+                    }
+                    .info{
+                        margin: 0;
+                        font-size: .8em;
+                        font-family: 'Montserrat', sans-serif;
+                        font-weight: 500;
+                        flex: 1 0 auto;
+                    }
+                }
+            }
+            .directional{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                cursor: pointer;
+                height: 45px;
+                svg{
+                    transform: scale(2);
+                }
+                p{
+                    font-size: .7em;
+                    max-width: 100px;
+                    font-weight: 700;
+                }
+                .left{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    p{
+                        text-align: left;
+                    }
+                    &:hover{
+                        color: $light-accent;
+                    }
+                }
+                .right{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    justify-content: end;
+                    p{
+                        text-align: end;
+                    }
+                    &:hover{
+                        color: $light-accent;
+                    }
+                }
+            }
+            p, h2{
+                margin: 0;
+            }
+        }
+    }
+}
+
+.performance-nav-mirror{
+    margin-right: 170px;
+    margin-top: 25px;
+    margin-bottom: 17px;
+    display: flex;
+    justify-content: end;
+    gap: 100px;
+    list-style: none;
+    padding: 0;
+}
+
+.overview-nav-button{
+    color: black;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.active{
+    color: $light-accent;
+    text-decoration: underline;
+    text-decoration-thickness: 5px;
+    text-underline-offset: 5px;
+}

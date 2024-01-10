@@ -1,0 +1,150 @@
+$dark-accent: #00446b;
+$light-accent: #0074b3;
+.trim-box{
+    background-color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-top: 25px;
+}
+.trim-nav{
+    box-shadow: 0px 0px 8px 1px lightgray;
+    box-sizing: border-box;
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 160px;
+    z-index: 1;
+    .nav-title{
+        color: $dark-accent;
+        flex: 1 0 auto
+    }
+    .nav{
+        height: 70px;
+        display: flex;
+        list-style: none;
+        gap: 30px;
+        .nav-item{
+            text-transform: uppercase;
+            font-size: .9em;
+            font-weight: 600;
+        }
+    }
+}
+
+.trim-section{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 0px;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    button{
+        padding: 10px 20px;
+        border-radius: 100px;
+        border: solid 2px #0074b3;
+        background-color: white;
+        color: #0074b3;
+        font-weight: 900;
+        cursor: pointer;
+        &:hover{
+            color: white;
+            background-color: #0074b3;
+        }
+    }
+}
+
+.trim-bar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.trim-card{
+    width: 180px;
+    height: 405px;
+    box-sizing: border-box;
+    padding: 15px 10px;
+    background-color: white;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    .see-more{
+        font-weight: 900;
+        font-size: .7em;
+        margin: 8px 0px 0 0 ;
+        color: #0074b3;
+        &:hover{
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+}
+
+.trim-level-section{
+    width: 100%;
+    border-bottom: solid;
+    border-width: .5px;
+    border-color: rgb(231, 231, 231);
+    p{
+        margin: 0;
+    }
+    .trim-level{
+        font-weight: 700;
+        color: #00324f;
+    }
+    .trim-price{
+        font-size: .9em;
+        font-weight: 600;
+        color: #09496f;
+    }
+    .trim-button{
+        width: 50%;
+        color: white;
+        background-color: red;
+        border: solid 2px red;
+        border-radius: 100px;
+        padding: 5px 10px;
+        margin: 10px 0px;
+        font-weight: 900;
+        cursor: pointer;
+        &:hover{
+            background-color: white;
+            color: red;
+        }
+    }
+    .starting-tag{
+        font-size: .6em;
+    }
+}
+
+.trim-specs-section{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    flex: 1 0 auto;
+    .trim-spec{
+        border-bottom: solid;
+        border-width: .5px;
+        border-color: rgb(231, 231, 231);
+    }
+    p{
+        margin: 10px 0px 0px 0px;
+        font-size: .8em;
+        padding-left: 4px;
+        color: #0074b3;
+        line-height: 1;
+        &:hover{
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+}
