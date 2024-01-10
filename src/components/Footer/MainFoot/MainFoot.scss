@@ -24,6 +24,7 @@ $light-accent: #0074b3;
         grid-template-columns: 1fr 1fr 1fr;
 
         .search-item{
+            color: black;
             height: 120px;
             display: flex;
             flex-direction: column;
@@ -52,6 +53,7 @@ $light-accent: #0074b3;
             justify-content: center;
             align-items: center;
             input{
+                background-color: white;
                 height: 35px;
                 width: 100%;
                 border-style: none;
@@ -62,6 +64,7 @@ $light-accent: #0074b3;
             }
         }
         .search-end{
+            color: black;
             display: flex;
             flex-direction: column;
             align-items: end;
@@ -105,6 +108,7 @@ $light-accent: #0074b3;
             font-size: .8em;
             margin: 10px 0px;
             cursor: pointer;
+            color: black;
         }
     }
 }
