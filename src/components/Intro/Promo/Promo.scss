@@ -8,6 +8,9 @@
     justify-content: center;
     color: white;
     .white-bar{
+        @media screen and (max-width: 768px) {
+          display: none;
+        }
         background-color: white;
         width: 30px;
         height: 100%;
@@ -26,12 +29,30 @@
     overflow: hidden;
     position: absolute;
     z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     img{
-        width: 110%;
+      width: 110%;
+      content:url('https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2024/accord-sedan/Hybrid/Promo-Banner/MY24-accord-promobanner-1920x350-2x.jpg');
+        @media screen and (max-width: 768px) {
+          height: 500px;
+          width: auto;
+            content:url('https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2024/accord-sedan/Hybrid/Promo-Banner/MY24-accord-promobanner-767x500-2x.jpg');       
+        }
     }
 }
 
 .promo-info-section{
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    padding-bottom: 4em;
+    justify-content: end;
+  }
   display: flex;
   flex-direction: column;
   gap: 12px;

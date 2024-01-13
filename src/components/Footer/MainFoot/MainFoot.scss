@@ -19,11 +19,20 @@ $light-accent: #0074b3;
         }
     }
     .search{
+        @media screen and (max-width: 900px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
         width: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-
         .search-item{
+            @media screen and (max-width: 900px) {
+                margin-top: 30px;  
+                height: 50px;  
+            }
             color: black;
             height: 120px;
             display: flex;
@@ -31,6 +40,11 @@ $light-accent: #0074b3;
             align-items: start;
             font-weight: 500;
             font-size: .9em;
+            p{
+                @media screen and (max-width: 900px) {
+                    display: none;     
+                }
+            }
             .logos{
                 display: flex;
                 gap: 10px;
@@ -52,7 +66,12 @@ $light-accent: #0074b3;
             display: flex;
             justify-content: center;
             align-items: center;
+            @media screen and (max-width: 900px) {
+                width: 100%;
+                
+            }
             input{
+
                 background-color: white;
                 height: 35px;
                 width: 100%;
@@ -64,6 +83,11 @@ $light-accent: #0074b3;
             }
         }
         .search-end{
+            @media screen and (max-width: 900px) {
+                align-items: center;    
+                margin-bottom: 20px;
+                text-align: center;
+            }
             color: black;
             display: flex;
             flex-direction: column;
@@ -71,6 +95,11 @@ $light-accent: #0074b3;
             font-weight: 500;
             font-size: .9em;
             button{
+                @media screen and (max-width: 900px) {
+                    width: 80%;     
+                    height: 30px;
+                    padding: 0;
+                }
                 padding: 10px 30px;
                 border: solid 2px $dark-accent;
                 background-color: white;

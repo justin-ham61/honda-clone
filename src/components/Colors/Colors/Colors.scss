@@ -4,12 +4,16 @@ $light-accent: #0074b3;
 .colors-box{
     position: relative;
     .thin-heading{
+        font-size: clamp(3rem, -0.5rem + 4vw, 4rem);
         color: #00446b;
         margin: 0;
     }
     .color-cycle-box{
         .left-arrow, 
         .right-arrow{
+            @media screen and (max-width: 900px) {
+                display: none;
+            }
             width: 40px;
             height: 75px;
             background-color: $dark-accent;
@@ -46,14 +50,21 @@ $light-accent: #0074b3;
         display: flex;
         justify-content: center;
         .image{
+            @media screen and (max-width: 900px) {
+                width: 100%;
+            }
             width: 900px;
             height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            transition: .3s;
             img{
                 transform: scale(.8);
+                @media screen and (max-width: 900px) {
+                    width: 170%;
+                }
             }
         }
     }
@@ -80,13 +91,26 @@ $light-accent: #0074b3;
     }
     .color-selector-bar{
         margin: 15px 0 0;
+        @media screen and (max-width: 900px) {
+            box-sizing: border-box;
+            padding: 0 1em;
+        }
         ul{
+            @media screen and (max-width: 900px) {
+                gap: 1em;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
             padding: 0;
             display: flex;
             gap: 4em;
             list-style: none;
         }
         .color-button{
+            @media screen and (max-width: 900px) {
+                height: 40px;
+                width: 40px;
+            }
             height: 50px;
             width: 50px;
             border-radius: 25px;

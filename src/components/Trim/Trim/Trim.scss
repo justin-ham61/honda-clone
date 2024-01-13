@@ -22,7 +22,8 @@ $light-accent: #0074b3;
     z-index: 1;
     .nav-title{
         color: $dark-accent;
-        flex: 1 0 auto
+        flex: 1 0 auto;
+        font-size: clamp(3rem, -0.5rem + 4vw, 4rem);
     }
     .nav{
         height: 70px;
@@ -66,6 +67,7 @@ $light-accent: #0074b3;
     display: flex;
     justify-content: center;
     gap: 10px;
+    overflow-x: scroll;
 }
 
 .trim-card{

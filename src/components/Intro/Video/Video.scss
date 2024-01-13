@@ -5,6 +5,7 @@
     overflow: hidden;
     color: white;
     .video{
+        object-fit: cover;
         position: absolute;
         left: 50%;
         transform: translate(-50%, 0);
@@ -13,6 +14,9 @@
         position: absolute;
         width: 100%;
         .vehicle-info{
+            @media screen and (max-width: 768px) {
+                display: none;
+            }
             background:none;
             bottom: auto;
             height: auto;
@@ -105,6 +109,10 @@
     width: 100%;
     .hero-highlights{
         justify-content: center;
+        @media screen and (max-width: 768px) {
+            flex-wrap: wrap; 
+            align-items: baseline;     
+        }
         margin-bottom: 30px;
         width: auto;
         display: flex;

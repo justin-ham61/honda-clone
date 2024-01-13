@@ -1,11 +1,14 @@
 import './Performance.scss'
-import { useState } from 'react'
+import { RefObject, useRef, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { AnimatePresence, motion } from 'framer-motion'
 
 const Performance = () => {
-    const [ chosenCategory, setChosenCategory ] = useState(0)
+    const [ chosenCategory, setChosenCategory ] = useState<number>(0)
+    const [ mobileNavTranslate, setMobileNavTranslate ] = useState<number>(0)
+    const navBarRef: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null)
+    const mobileBoxRef: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null)
     const [ initial, setInitial ] = useState({
         image: 500,
         text: 350
@@ -64,6 +67,37 @@ const Performance = () => {
         setTimeout(() => {
             setChosenCategory(target)
         }, 100)
+    }
+    
+    const handleMobileNavClick = (target: number) => {
+        if (target === chosenCategory){
+            return
+        }
+        if(target > chosenCategory){
+            setInitial({image: +500, text: +350})
+        } else if (target < chosenCategory) {
+            setInitial({image: -500, text: -350})
+        }
+        setTimeout(() => {
+            setChosenCategory(target)
+        }, 100)
+        if(navBarRef.current && mobileBoxRef.current){
+            const navItem = navBarRef.current.children[target] as HTMLElement
+            const navItemLeftPosition = navItem.offsetLeft
+            const navItemRightPosition = navItemLeftPosition + navItem.offsetWidth
+            const boxWidth = mobileBoxRef.current.offsetWidth
+            //means item is in view
+            if(navItemLeftPosition > 0 && navItemRightPosition < boxWidth){
+                setMobileNavTranslate(0)
+                //means item is off screen to the left
+            } else if (navItemLeftPosition < 0 && navItemRightPosition > 0){
+                setMobileNavTranslate(0)
+                //means item is off screen to the right
+            } else if (navItemLeftPosition < boxWidth && navItemRightPosition > boxWidth){
+                const translateAmount = navItemRightPosition - boxWidth + 32
+                setMobileNavTranslate(-translateAmount)
+            }
+        }
     }
 
   return (
@@ -132,6 +166,40 @@ const Performance = () => {
                             }
                         </div>
                     </div>
+            </div>
+        </div>
+        <div className='performance-box-mobile' ref={mobileBoxRef}>
+            <h2 className='thin-heading'>Performance</h2>
+            <div className='nav-bar-wrapper'>
+                <div className="mobile-nav-bar"
+                    ref={navBarRef}
+                    style={{
+                        transform: `translateX(${mobileNavTranslate}px)`
+                    }}
+                    >
+                    {category.map((item, i) => {
+                        return(
+                            <p key={i} onClick={() => handleMobileNavClick(i)} className={`mobile-nav-item ${chosenCategory === i && "active"}`}>{item.name}</p>
+                            )
+                        })}
+                </div>
+            </div>
+            <div className='mobile-article-section'>
+                <AnimatePresence>
+                    <motion.div className='mobile-article'
+                        key={chosenCategory}
+                        initial={{x: initial.text}}
+                        animate={{x: 0}}
+                        exit={{x: -initial.text}}
+                        transition={{ease: 'easeOut', duration: .5, delay: .01}}
+                        >
+                        <img src={category[chosenCategory].image} alt="" />
+                        <div className='description'>
+                            <p className='heading'>{category[0].heading}</p>
+                            <p>{category[chosenCategory].info}</p>
+                        </div>
+                    </motion.div>
+                </AnimatePresence>
             </div>
         </div>
     </div>

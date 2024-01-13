@@ -18,7 +18,7 @@ import SubFoot from './components/Footer/SubFoot/SubFoot'
 function App() {
 
   return (
-    <>
+    <div className='page'>
       <MainNav/>
       <SubNav/>
       <Video/>
@@ -35,7 +35,7 @@ function App() {
       <Brochures/>
       <MainFoot/>
       <SubFoot/>
-    </>
+    </div>
   )
 }
 

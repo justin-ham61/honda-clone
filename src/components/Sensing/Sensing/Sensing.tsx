@@ -1,6 +1,30 @@
+import { useEffect, useRef, useState } from 'react'
 import './Sensing.scss'
 
 const Sensing = () => {
+    const [ activeGallary, setActiveGallary ] = useState(0)
+    const [ width, setWidth ] = useState(0)
+    const [ left, setLeft ] = useState(0)
+    const trackBoxRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        if (!trackBoxRef.current){
+        return
+        } else {
+        const resizeObserver = new ResizeObserver(() => {
+            if(trackBoxRef.current){
+                setWidth(trackBoxRef.current.clientWidth)
+            }
+        })
+        resizeObserver.observe(trackBoxRef.current)
+        return () => resizeObserver.disconnect()
+        }
+    }, [trackBoxRef, width])
+
+    useEffect(() => {
+        const left = (width - (290))/2
+        setLeft(left)
+    },[width])
     const info = [
         {
             img: 'https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2024/accord-sedan/Honda-Sensing/MY24-accord-honda-sensing-01-2x.jpg',
@@ -20,7 +44,7 @@ const Sensing = () => {
     ]
   return (
     <div className='sensing-box box'>
-      <img src="https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2019/passport/Honda_Sensing_SVG_Light.svg" alt="" />
+      <img className='sensing-logo' src="https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2019/passport/Honda_Sensing_SVG_Light.svg" alt="" />
       <div className='image-track-wrapper'>
         <div className='image-track'>
             {info.map((item, i) => {
@@ -38,6 +62,32 @@ const Sensing = () => {
             )}
         </div>
       </div>
+      <div className='image-track-box' ref={trackBoxRef}>
+          <div className='image-track'
+            style={{
+                transform: `translateX(${left - (((290)) * activeGallary) - (15 * activeGallary)}px`
+            }}
+          >
+            {info.map((item, i) => {
+                return(
+                    <div className="item" key={i} onClick={() => setActiveGallary(i)}>
+                    <img src={item.img} alt="" />
+                    <div className='information'>
+                        <div className='info-title'>{item.title}</div>
+                        <div className='info-text'>
+                            <p>{item.text}</p>
+                        </div>
+                    </div>
+                </div>
+                )
+            })}
+        </div>
+        <div className='dot-bar'>
+            <div onClick={() => setActiveGallary(0)} className={activeGallary === 0 ? 'active' : ''}></div>
+            <div onClick={() => setActiveGallary(1)} className={activeGallary === 1 ? 'active' : ''}></div>
+            <div onClick={() => setActiveGallary(2)} className={activeGallary === 2 ? 'active' : ''}></div>
+        </div>
+    </div>
     </div>
   )
 }
