@@ -24,33 +24,34 @@ const Promo = () => {
     }, []);
 
     const handleLoad = () => {
-        const img = imageRef.current;
-        if (img) {
-            console.log(img.clientHeight); // Log the original height
-            setImageHeight(img.clientHeight + 40); // Add 100 to the original height
-        }
+        setTimeout(() => {
+
+            const img = imageRef.current;
+            if (img) {
+                console.log(img.clientHeight); // Log the original height
+                setImageHeight(img.clientHeight + 40); // Add 100 to the original height
+            }
+        }, 100)
     };
 
     const handleClick = () => {
         console.log("hello")
     }
-  return (
-    <>
-        <div className='promo-section' style={{height: imageHeight}}>
-        <div className='promo-image'>
-                <img onLoad={handleLoad} ref={imageRef} alt="" />
-                <div className='bottom-info'>Sport-L Hybrid shown in Crystal Black Pearl.</div>
-        </div>
-        <div className='white-bar left'></div>
-        <div className="white-bar right"></div>
-        <div className='promo-info-section' onClick={handleClick}>
-            <h2>Step Up to the Accord Hybrid</h2>
-            <p>With 204-horsepower,* an extra-wide 12.3-inch touch-screen, and wireless Apple CarPlay®* compatibility, hybrid trims give you premium technology, while receiving a 46 city/41 highway mpg rating.*</p>
-            <button className='blue-button' onClick={handleClick}>LEARN MORE</button>
-        </div>
-        </div>
-        <div className='promo-section-mobile'>
-            
+
+    return (
+          <>
+        <div key={imageHeight} className='promo-section' style={{height: imageHeight}}>
+            <div className='promo-image'>
+                    <img onLoad={handleLoad} ref={imageRef} alt="" />
+                    <div className='bottom-info'>Sport-L Hybrid shown in Crystal Black Pearl.</div>
+            </div>
+            <div className='white-bar left'></div>
+            <div className="white-bar right"></div>
+            <div className='promo-info-section' onClick={handleClick}>
+                <h2>Step Up to the Accord Hybrid</h2>
+                <p>With 204-horsepower,* an extra-wide 12.3-inch touch-screen, and wireless Apple CarPlay®* compatibility, hybrid trims give you premium technology, while receiving a 46 city/41 highway mpg rating.*</p>
+                <button className='blue-button' onClick={handleClick}>LEARN MORE</button>
+            </div>
         </div>
     </>
   )
